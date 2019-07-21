@@ -178,16 +178,10 @@ abstract class Service extends ServiceBase implements IAuthService
 			$url = $_GET['redirect_uri'];
 		}
 		else {
-			$route = Yii::$app->getRequest()->getQueryParams();
+			$route = array();
 			array_unshift($route, '');
-
-			// Can not use these params in OAuth2 callbacks
-			foreach (['code', 'state', 'redirect_uri'] as $param) {
-				if (isset($route[$param])) {
-					unset($route[$param]);
-				}
-			}
-
+			
+			$route['service'] = $_GET['service'];
 			$url = Url::to($route, true);
 		}
 
