@@ -10,6 +10,7 @@ use yii\web\View;
 ?><!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="refresh" content="3; url=<?=$url?>">
 	<script type="text/javascript">
 		<?php 
 			$code = 'if (window.opener) {';
